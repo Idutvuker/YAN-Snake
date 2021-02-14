@@ -3,8 +3,14 @@
 //
 
 #include "Game.h"
+#include "../constants.h"
 
 void Game::draw(const Renderer &renderer) {
+    if (gameState == ENDGAME) {
+        renderer.setDrawColor(Constants::Colors::BACKGROUND_ENDGAME);
+        renderer.clear();
+    }
+
     grid.drawFruit(tileRenderer);
 
     for (auto snake: snakes)
@@ -30,8 +36,9 @@ Game::Game(int gridW, int gridH, int tileSize) :
         Application("Snake", gridW * tileSize, gridH * tileSize),
         grid(gridW, gridH),
         tileRenderer(&renderer, tileSize) {
-    snakes.push_back(new Snake(&grid, 4, gridW / 2, gridH / 2));
-    snakes.push_back(new Snake(&grid, 4, 0, 0));
+
+    snakes.push_back(new Snake(&grid, 4, gridW / 3, gridH / 3));
+    snakes.push_back(new Snake(&grid, 4, 2 * gridW / 3, 2 * gridH / 3));
 
     activeSnakeIndex = 0;
     snakes[activeSnakeIndex]->active = true;

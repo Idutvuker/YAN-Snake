@@ -16,10 +16,15 @@ namespace Constants {
         const SDL_Color FRUIT = {0, 255, 0, 0};
 
         const SDL_Color BACKGROUND = {0, 0, 0, 255};
+        const SDL_Color BACKGROUND_ENDGAME = {200, 200, 0, 255};
     }
 
     namespace App {
         const int UPDATE_DELAY = 1000 / 12;
+
+        const int DEFAULT_GRID_WIDTH = 25;
+        const int DEFAULT_GRID_HEIGHT = 25;
+        const int DEFAULT_TILE_SIZE = 20;
     }
 }
 #endif //YAN_SNAKE_CONSTANTS_H

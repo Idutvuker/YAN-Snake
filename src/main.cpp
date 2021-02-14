@@ -1,10 +1,12 @@
-#include <iostream>
-#include "SDL.h"
-
+#include "constants.h"
 #include "game/Game.h"
 
 int main(int argc, char *argv[]) {
-    Game game(25, 25, 20);
+    int gridW = Constants::App::DEFAULT_GRID_WIDTH;
+    int gridH = Constants::App::DEFAULT_GRID_HEIGHT;
+    int tileSize = Constants::App::DEFAULT_TILE_SIZE;
+
+    Game game(gridW, gridH, tileSize);
 
     game.run();
 
