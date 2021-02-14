@@ -29,8 +29,7 @@ void ActionManager::update() {
                 default:
                     break;
             }
-        }
-        else {
+        } else {
             switch (keyMap[i]) {
                 case JUST_PRESSED:
                 case PRESSED:

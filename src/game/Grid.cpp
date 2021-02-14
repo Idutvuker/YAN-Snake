@@ -6,16 +6,21 @@
 #include "Grid.h"
 #include "../constants.h"
 
+
 Grid::Grid(int gridW, int gridH) : width(gridW), height(gridH), tiles(gridW * gridH),
                                    randomGenerator(std::random_device()()) {}
 
+bool Grid::inBounds(int x, int y) const {
+    return 0 <= x && x < width && 0 <= y && y < height;
+}
+
 void Grid::takeTile(int x, int y) {
-    if (0 <= x && x < width && 0 <= y && y <= height)
+    if (inBounds(x, y))
         tiles[y * width + x].state = Tile::State::SNAKE;
 }
 
 void Grid::freeTile(int x, int y) {
-    if (0 <= x && x < width && 0 <= y && y <= height)
+    if (inBounds(x, y))
         tiles[y * width + x].state = Tile::FREE;
 }
 
@@ -41,7 +46,7 @@ void Grid::respawnFruit() {
 }
 
 Grid::Tile::State Grid::getTileState(int x, int y) {
-    if (0 <= x && x < width && 0 <= y && y <= height)
+    if (inBounds(x, y))
         return tiles[y * width + x].state;
 
     return Tile::FREE;

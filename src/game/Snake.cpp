@@ -7,7 +7,7 @@
 #include "TileRenderer.h"
 #include "../constants.h"
 
-Snake::Snake(Grid *grid, unsigned int initLen, int posX, int posY, Direction initDirection) :
+Snake::Snake(Grid *grid, int initLen, int posX, int posY, Direction initDirection) :
         grid(grid),
         direction(initDirection)
 {
@@ -109,9 +109,7 @@ bool Snake::move() {
     if (oldTileState == Grid::Tile::FRUIT) {
         grow();
         grid->respawnFruit();
-    }
-
-    else if (oldTileState == Grid::Tile::SNAKE) {
+    } else if (oldTileState == Grid::Tile::SNAKE) {
         return false;
     }
 

@@ -38,6 +38,8 @@ public:
     void drawFruit(const TileRenderer &tileRenderer);
 
     Tile::State getTileState(int x, int y);
+
+    bool inBounds(int x, int y) const;
 };
 
 

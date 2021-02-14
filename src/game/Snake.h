@@ -42,7 +42,7 @@ private:
 public:
     bool active = false;
 
-    Snake(Grid *grid, unsigned int initLen, int posX, int posY, Direction initDirection = RIGHT);
+    Snake(Grid *grid, int initLen, int posX, int posY, Direction initDirection = RIGHT);
     ~Snake();
 
     void draw(const TileRenderer &renderer) const;
